@@ -1,88 +1,32 @@
 /*
- * GccApplication1.c
+ * GccApplication2.c
  *
- * Created: 7/4/2020 9:17:40 AM
+ * Created: 11/22/2020 2:27:43 PM
  * Author : mizo
  */ 
 
-#include <avr/interrupt.h>
-#include <ctype.h>
-#include "DHT.h"
-#include "SerialTerminal.h"
-void setup_Timer1(void);
-DHT dht;
-uint8_t pv;
+#include <avr/io.h>
+#include "UART/Interface/UART.h"
+#include <util/delay.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "I2C/Devices/BMP180/BMP180.h"
 int main(void)
 {
-	initDHT(&dht,0b00100011);//pin2D
-	SerialTerminalBegin(MYUBRR);
-	SerialTerminalSetBuffer(10);
-	setup_Timer1();
-	sei();
-	
-	
-	
+	initUART();
+	initMPU();
+	BMP180 bmp180;
+	char buffer[20], float_[10];
+	initBMP180(&bmp180);
     /* Replace with your application code */
     while (1) 
-    {
-			asm("nop");
+    {			
+		readBMP180(&bmp180);
+		dtostrf( bmp180.ctemp, 3, 2, float_ );
+		sprintf(buffer," T = %s%cC",float_,0xF8);           /* 0xF8 Ascii value of degree '°' on serial */
+		sendStringUART(buffer);
+	
+
     }
 }
-ISR(TIMER1_OVF_vect){
-	//read from DHC
-	if (DHTPHASE==DHTPHASEPOWER)
-		readDHT(&dht);
-}
-ISR(TIMER1_COMPB_vect){
-	if (DHTPHASE==DHTPHASE18MS)
-	{
-		SerialTerminalAddToBuffer('1');
-		SerialTerminalAddToBuffer('9');
-		SerialTerminalAddToBuffer('4');
-		SerialTerminalAddToBuffer('2');
-		SerialTerminalAddToBuffer('0');
-		SerialTerminalAddToBuffer('\r');
-		
-		readDHTPhase2(&dht);
-	}else if (DHTPHASE == DHTPHASE40US){
-		readDHTPhase3(&dht);
-	}
-	
-}
-ISR(USART_UDRE_vect)
-{			
-	if (SerialDataindex>0)
-	{
-		SerialTerminalPrint(bufferText[totalDataSize-SerialDataindex+1]);
-		SerialDataindex--;
-	}else{
-		totalDataSize=0;
-	}
-				
-		
-			
-			DDRB=0b11111111;
-			PORTB^=0b11111111;
-}
-ISR(PCINT0_vect)
-{
-	if (getDHTPCIVEC(&dht)&PCI0VEC);
-}
-ISR(PCINT1_vect)
-{
-	if (getDHTPCIVEC(&dht)&PCI1VEC);
-}
-ISR(PCINT2_vect)
-{
-	if (getDHTPCIVEC(&dht)&PCI1VEC);
-
-}
-
-void setup_Timer1(void){
-	TIMSK1 |=0b00000001;//enables interrupt 1 Overflow
-	TCNT1 =0;
-	TCCR1A =0b00000000;
-	TCCR1B =0b00000100; //CS12
-}
-
 
