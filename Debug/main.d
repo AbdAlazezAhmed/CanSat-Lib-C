@@ -11,7 +11,8 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- .././UART/Interface/UART.h .././UART/Interface/../../config.h \
+ .././config.h .././UART/Interface/UART.h \
+ .././UART/Interface/../../config.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
@@ -21,7 +22,8 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  .././I2C/Devices/BMP180/BMP180.h .././I2C/Devices/BMP180/BMP180_REG.h \
  .././I2C/Devices/BMP180/../../Interface/MinI2C.h \
- .././I2C/Devices/BMP180/../../Interface/../../config.h
+ .././I2C/Devices/BMP180/../../Interface/../../config.h \
+ .././I2C/Devices/BMP180/../../../config.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -46,6 +48,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
+
+.././config.h:
 
 .././UART/Interface/UART.h:
 
@@ -72,3 +76,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 .././I2C/Devices/BMP180/../../Interface/MinI2C.h:
 
 .././I2C/Devices/BMP180/../../Interface/../../config.h:
+
+.././I2C/Devices/BMP180/../../../config.h:

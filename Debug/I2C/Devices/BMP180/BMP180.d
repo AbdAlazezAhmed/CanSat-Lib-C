@@ -19,7 +19,8 @@ I2C/Devices/BMP180/BMP180.d I2C/Devices/BMP180/BMP180.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../I2C/Devices/BMP180/../../Interface/../../config.h
+ ../I2C/Devices/BMP180/../../Interface/../../config.h \
+ ../I2C/Devices/BMP180/../../../config.h
 
 ../I2C/Devices/BMP180/BMP180.h:
 
@@ -62,3 +63,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
 ../I2C/Devices/BMP180/../../Interface/../../config.h:
+
+../I2C/Devices/BMP180/../../../config.h:

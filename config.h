@@ -9,7 +9,7 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 #define F_CPU 16000000UL
-#define SCL_CLK 100000L
+#define SCL_CLK 100000
 #define MPU_ADDRESS 0xD0
 #define MPU_SAMPLE_RATE 0x07 //1kHz
 #define MPU_POWER_MAN_VALUE 0x01 //x-axis gyroscope reference
@@ -18,5 +18,6 @@
 #define INTERRUPT_REG_DATA 0x01 //enable inturrupt
 
 #define USART_BAUDRATE 9600
+#define OSS 0
 
 #endif /* CONFIG_H_ */
